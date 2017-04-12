@@ -1,0 +1,29 @@
+{
+  "name": "wallstreetcn-fm",
+  "version": "1.0.0",
+  "description": "The unofficial podcast feed for FMRadio(from https://wallstreetcn.com)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 2",
+    "start": "./node_modules/nodemon/bin/nodemon.js --harmony index.js"
+  },
+  "repository": "git+ssh://git@github.com/hewigovens/wscn-fm.git",
+  "author": "hewig",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hewigovens/wscn-fm/issues"
+  },
+  "homepage": "https://github.com/hewigovens/wscn-fm#readme",
+  "dependencies": {
+    "koa": "^2.2.0",
+    "koa-better-router": "^2.1.1",
+    "lodash": "^4.17.4",
+    "nedb-promise": "^2.0.1",
+    "node-fetch": "^1.6.3",
+    "node-schedule": "^1.2.1",
+    "rss": "^1.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
