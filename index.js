@@ -17,21 +17,21 @@ router.get('/feed', async (ctx, next) => {
     await next();
     let feed = new rss({
         title: 'unofficial feed for FMRadio(wallstreetcn.com)',
-        author: '华尔街见闻',
+        author: 'WSCN',
+        link: 'https://wscn-fm.herokuapp.com/feed',
         feed_url: 'https://wscn-fm.herokuapp.com/feed',
         image_url: 'https://wpimg.wallstcn.com/9a897aa6-9ff4-480c-93e3-02733556543e'
     });
 
     var programs = await storage.programs();
     _.each(programs, (program) => {
-        console.log('add ')
         feed.item({
             title: program.title,
             description: program.content_short,
             url: program.content_args[0].uri,
             guid: program.id,
-            date: new Date(program.display_time).toLocaleTimeString('zh-CN'),
-            enclosure: {url: program.content_args[0].uri, type: 'audio'}
+            date: new Date(program.display_time * 1000),
+            enclosure: {url: program.content_args[0].uri, type: 'audio/mp3'}
         });
     });
     ctx.response.type = 'xml';
