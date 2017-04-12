@@ -17,7 +17,9 @@ router.get('/feed', async (ctx, next) => {
     await next();
     let feed = new rss({
         title: 'unofficial feed for FMRadio(wallstreetcn.com)',
-        author: '华尔街见闻'
+        author: '华尔街见闻',
+        feed_url: 'https://wscn-fm.herokuapp.com/feed',
+        image_url: 'https://wpimg.wallstcn.com/9a897aa6-9ff4-480c-93e3-02733556543e'
     });
 
     var programs = await storage.programs();
@@ -28,7 +30,8 @@ router.get('/feed', async (ctx, next) => {
             description: program.content_short,
             url: program.content_args[0].uri,
             guid: program.id,
-            date: new Date(program.display_time).toLocaleTimeString('zh-CN')
+            date: new Date(program.display_time).toLocaleTimeString('zh-CN'),
+            enclosure: {url: program.content_args[0].uri, type: 'audio'}
         });
     });
     ctx.response.type = 'xml';
