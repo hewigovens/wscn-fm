@@ -36,7 +36,7 @@ class WSCNApi {
 
     async fetchArticles() {
         let url = 'https://api-prod.wallstreetcn.com/apiv1/content/user/articles'
-        url += '?user_id=66068&limit=3'
+        url += '?user_id=66068&limit=10'
         console.log('fetchArticles ', url);
         let articles = await fetch(url, {
             method: 'get',

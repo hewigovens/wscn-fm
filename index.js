@@ -9,7 +9,7 @@ app.context.db = storage.db;
 
 // routes
 router.get('/update', (ctx, next) => {
-    storage.fetchTodayProgram();
+    storage.fetchPrograms();
     ctx.body = 'Updating...';
 });
 
