@@ -16,7 +16,7 @@ class WSCNApi {
     }
     let url = 'https://api-prod.wallstreetcn.com/apiv1/content/articles/';
     url += article_id + '?extract=1';
-    console.log(url);
+    console.log('fetchArticle ' + url);
     let article = await fetch(url, {
       method: 'get',
       headers: this.headers,

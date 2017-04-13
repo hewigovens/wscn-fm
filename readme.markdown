@@ -2,7 +2,9 @@
 
 the unofficial podcast feed for FMRadio (https://wallstreetcn.com)
 
+built with: 
+
 - node --harmony (async / await)
-- koa / nedb
+- koa / nedb / node-fetch
 - yarn
-- eslint / flow
+- eslint / flow (with pre-commit)
