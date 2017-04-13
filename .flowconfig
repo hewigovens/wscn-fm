@@ -1,0 +1,7 @@
+[ignore]
+.*/.history/.*
+[include]
+
+[libs]
+
+[options]
