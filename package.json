@@ -17,6 +17,7 @@
   "homepage": "https://github.com/hewigovens/wscn-fm#readme",
   "dependencies": {
     "babel-cli": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
     "koa": "^2.2.0",
     "koa-better-router": "^2.1.1",
     "lodash": "^4.17.4",
@@ -27,7 +28,6 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.2",
-    "babel-preset-flow": "^6.23.0",
     "babel-watch": "^2.0.6",
     "eslint": "^3.19.0",
     "eslint-plugin-flowtype": "^2.30.4",
