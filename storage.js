@@ -23,7 +23,6 @@ class Storage {
       console.log('check ' + key);
       let radio = await this.db.findOne({ 'date_key': key,});
       if (radio) {
-        console.log('skip ' + key);
         continue;
       }
       to_fetch.push(article);
@@ -36,6 +35,7 @@ class Storage {
         let date_key = api.genDateKey(new Date(program.display_time * 1000));
         console.log('insert ' + date_key + ' with id ' + program.id);
         program.date_key = date_key;
+        program.article_url = article.url;
         await this.db.insert(program);
       }
     });

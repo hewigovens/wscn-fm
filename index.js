@@ -28,8 +28,8 @@ router.get('/feed', async (ctx, next) => {
   _.each(programs, (program) => {
     feed.item({
       title: program.title,
-      description: program.content_short,
-      url: program.content_args[0].uri,
+      description: ['Source: ' + program.article_url, program.content_short,].join('\n'),
+      url: program.article_url,
       guid: program.id,
       date: new Date(program.display_time * 1000),
       enclosure: {url: program.content_args[0].uri, type: 'audio/mp3',},
@@ -49,13 +49,10 @@ app.use(async function (ctx, next) {
   console.log(`${ctx.method} ${ctx.url} - ${ms}`);
 });
 
-schedule.scheduleJob('0 0 12 * * ?', () => {
+schedule.scheduleJob('0 30 11 * * ?', () => {
+  let date = new Date();
+  console.log('scheduleJob fired at ' + date.toLocaleString('zh-CN'));
   storage.fetchPrograms();
-});
-
-process.on('SIGINT', function() {
-  console.log('Caught interrupt signal');
-  process.exit();
 });
 
 console.log('please visit http://127.0.0.1:3000');
