@@ -23,7 +23,7 @@ class WSCNApi {
     }).then((response) => {return response.json();}
         ).then((json) => {
           try {
-            if (json.data.content_args) {
+            if (json.data.content_args[0].type === 'audio') {
               return json.data;
             } else {
               return null;
