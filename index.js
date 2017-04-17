@@ -49,7 +49,7 @@ app.use(async function (ctx, next) {
   console.log(`${ctx.method} ${ctx.url} - ${ms}`);
 });
 
-schedule.scheduleJob('0 30 11 * * ?', () => {
+schedule.scheduleJob({hour: 23, minute: 30,}, () => {
   let date = new Date();
   console.log('scheduleJob fired at ' + date.toLocaleString('zh-CN'));
   storage.fetchPrograms();

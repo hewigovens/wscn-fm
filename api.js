@@ -41,26 +41,32 @@ class WSCNApi {
   }
 
   async fetchArticles() {
-    let url = 'https://api-prod.wallstreetcn.com/apiv1/content/user/articles';
-    url += '?user_id=66068&limit=10';
-    console.log('fetchArticles ', url);
-    let articles = await fetch(url, {
-      method: 'get',
-      headers: this.headers,
-    }).then((response) => {return response.json();}
-        ).then((json) => {
-          try {
-            let items = json.data.items;
-            return items;
-          } catch (error) {
-            console.error(error);
-            return [];
-          }
-        }).catch((error) => {
+    let user_ids = ['66068', '75',];
+    let all = [];
+    for (var i = 0; i < user_ids.length; i++) {
+      var user_id = user_ids[i];
+      let url = 'https://api-prod.wallstreetcn.com/apiv1/content/user/articles';
+      url += '?limit=10&user_id=' + user_id;
+      console.log('fetchArticles ', url);
+      let articles = await fetch(url, {
+        method: 'get',
+        headers: this.headers,
+      }).then((response) => {return response.json();})
+      .then((json) => {
+        try {
+          let items = json.data.items;
+          return items;
+        } catch (error) {
           console.error(error);
           return [];
-        });
-    return articles;
+        }
+      }).catch((error) => {
+        console.error(error);
+        return [];
+      });
+      all = all.concat(articles);
+    }
+    return all;
   }
 
   genDateKey(date: Date) {
