@@ -29,7 +29,7 @@ class WSCNApi {
               return null;
             }
           } catch(err) {
-            console.error(err);
+            console.error('not audio, skip ' + url);
             return null;
           }
         })
