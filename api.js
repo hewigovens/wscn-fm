@@ -41,7 +41,7 @@ class WSCNApi {
   }
 
   async fetchArticles() {
-    let user_ids = ['66068', '75',];
+    let user_ids = ['66068', '75', '100001700074',];
     let all = [];
     for (var i = 0; i < user_ids.length; i++) {
       var user_id = user_ids[i];
