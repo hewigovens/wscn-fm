@@ -20,7 +20,7 @@
     "babel-preset-flow": "^6.23.0",
     "koa": "^2.2.0",
     "koa-better-router": "^2.1.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "nedb-promise": "^2.0.1",
     "node-fetch": "^1.6.3",
     "node-schedule": "^1.2.1",
